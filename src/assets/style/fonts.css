@@ -1,0 +1,21 @@
+@font-face {
+    font-family: Montserrat;
+    src: url("../fonts/montserrat/Montserrat-Regular.ttf") format("opentype");
+}
+
+@font-face {
+    font-family: Montserrat;
+    font-weight: bold;
+    src: url("../fonts/montserrat/Montserrat-Bold.ttf") format("opentype");
+}
+
+@font-face {
+    font-family: Jura;
+    src: url("../fonts/jura/Jura-Regular.ttf") format("opentype");
+}
+
+@font-face {
+    font-family: Jura;
+    font-weight: bold;
+    src: url("../fonts/jura/Jura-Bold.ttf") format("opentype");
+}

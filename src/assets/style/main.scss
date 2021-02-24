@@ -1,0 +1,64 @@
+.darkula {
+  background: #1D1D22;
+  height: 100vh;
+  width: 100%;
+  z-index: 1;
+}
+
+.asteria {
+  &__welcome {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 129.9%;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #FF8563;
+  }
+  &__headline {
+    font-family: Jura, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 101%;
+    /* or 24px */
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #E0DBDC;
+  }
+  &__input {
+    width: 308px;
+    .v-input__slot {
+      min-height: 48px !important;
+      fieldset {
+        border-color: #FF8868;
+        border-radius: 24px;
+      }
+      input {
+        color: #56595A !important;
+        padding-left: 31px;
+        padding-right: 31px;
+        &::placeholder {
+          color: inherit !important;
+        }
+      }
+    }
+  }
+  &__button {
+    font-family: Montserrat;
+    width: 308px;
+    height: 48px !important;
+    font-style: normal;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    line-height: 143%;
+    text-align: center;
+    background: #FF8868 !important;
+    border-radius: 24px !important;
+    text-transform: none !important;
+    color: #1D1D22 !important;
+  }
+}
+
