@@ -1,5 +1,5 @@
 <template>
-<v-container class="d-flex flex-column justify-center align-center mt-11">
+<v-container class="d-flex flex-column darkula justify-center align-center mt-11">
     <h3 class="asteria__welcome mb-3">Здравствуйте</h3>
     <h2 class="asteria__headline mb-6">Как Вас зовут?</h2>
     <img :src="require('@/assets/img/start/saturn.svg')"alt="">
@@ -26,15 +26,16 @@
 export default {
     name: "EnterName",
     data: () => ({
-        name: ''
+        name: '',
     })
 }
 </script>
 
 <style lang="scss" scoped>
 .button-center {
-    width: 100%;
-    position: absolute;
-    bottom: 22px;
+    width: 100vw;
+    height: 100%;
+    padding-top: 100px;
+    background: #1D1D22;
 }
 </style>
