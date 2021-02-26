@@ -1,6 +1,6 @@
 <template>
-<v-container class="d-flex flex-column darkula justify-center align-center mt-11">
-    <h3 class="asteria__welcome mb-3">Здравствуйте</h3>
+<v-container class="d-flex flex-column darkula justify-center align-center">
+    <h3 class="asteria__welcome mb-3 mt-11">Здравствуйте</h3>
     <h2 class="asteria__headline mb-6">Как Вас зовут?</h2>
     <img :src="require('@/assets/img/start/saturn.svg')"alt="">
     <v-text-field
@@ -15,6 +15,8 @@
         <v-btn
                 rounded
                 class="asteria__button"
+                :disabled="name === ''"
+                @click="$emit('nextStep')"
         >
             Продолжить
         </v-btn>

@@ -37,11 +37,12 @@
         border-radius: 24px;
       }
       input {
-        color: #56595A !important;
+        color: #E0DBDC !important;
         padding-left: 31px;
         padding-right: 31px;
+        font-family: Montserrat;
         &::placeholder {
-          color: inherit !important;
+          color: #56595A !important;
         }
       }
     }
@@ -59,6 +60,15 @@
     border-radius: 24px !important;
     text-transform: none !important;
     color: #1D1D22 !important;
+    &.theme--light.v-btn.v-btn--disabled.v-btn--has-bg {
+      background-color: #4B4341 !important;
+      color: #FF8868 !important;
+    }
+  }
+  &__datepicker {
+    .v-picker__title {
+
+    }
   }
 }
 
