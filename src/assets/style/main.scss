@@ -65,9 +65,26 @@
       color: #FF8868 !important;
     }
   }
-  &__datepicker {
-    .v-picker__title {
-
+  &-menu {
+    .v-list-item__icon {
+      margin-right: 11px !important;
+      i {
+        color: #E0DBDC !important;
+      }
+    }
+    .v-list-item__title {
+      color: #E0DBDC !important;
+      font-family: Montserrat;
+    }
+    &__dates {
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 13px;
+      line-height: 143%;
+      /* or 19px */
+      color: #56595A;
+      margin: 0 !important;
     }
   }
 }
