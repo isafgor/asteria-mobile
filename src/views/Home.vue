@@ -2,15 +2,39 @@
   <v-card
           class="overflow-hidden"
           min-height="100vh"
+          color="#1D1223"
   >
-
-    <v-app-bar
-            color="transparent"
-    >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-
-      <h2 color="black">{{selectedZodiac.name}}</h2>
-    </v-app-bar>
+    <div class="asteria-home">
+      <div class="asteria-home__bar">
+        <div id="burger" class="header__burger" @click.stop="drawer = !drawer">
+          <span class="burger-menu__span"></span>
+          <span class="burger-menu__span"></span>
+          <span class="burger-menu__span"></span>
+        </div>
+        <h2 class="asteria-home__title">{{selectedZodiac.name}}</h2>
+      </div>
+      <div class="asteria-home__zodiac">
+        <img width="158" v-if="selectedZodiac && selectedZodiac.tag" :src="require(`@/assets/img/home/zodiac/${selectedZodiac.tag}.svg`)" alt="">
+      </div>
+    </div>
+    <div class="asteria-info">
+      <v-tabs v-model="tab" background-color="transparent" color="#FF8563" center-active>
+        <v-tab v-for="item of tabs" :key="item.id" color="#8C8C8C">{{item.name}}</v-tab>
+      </v-tabs>
+      <p class="mt-3">
+        <span>Фев 23, 2021</span>
+        Текст текст  тексцуацуа текст  тексттекст
+        цуатекст  текст  текст  текст тексцуауцаекст
+        текст  текст  текст Текст текст  текст  тексцуацуа
+        текст  текст текст  цуатекст  текст  текст  текст
+        тексцуауцаекст     Текст текст  текст  тексцуацуа текст
+        текст текст  цуатекст  текст  текст  текст тексцуауцаекст
+        текст  текст  текст Текст текст  текст  тексцуацуа текст
+        текст текст  цуатекст  текст  текст  текст тексцуауцаекст
+        текст  текст  текст   текст  текст  текст  текст  текст
+        текст  текст  текст  текст  текст  текст  текст
+      </p>
+    </div>
 
     <v-navigation-drawer
             v-model="drawer"
@@ -53,7 +77,7 @@
         </v-list-item>
       </v-list>
       <a class="saftech-mark" href="https://thesaftech.com">
-        <img :src="require('@/assets/img/home/menu/saftech-mark.png')"alt="" alt="">
+        <img :src="require('@/assets/img/home/menu/saftech-mark.svg')" alt="">
       </a>
     </v-navigation-drawer>
   </v-card>
@@ -64,8 +88,31 @@
 export default {
   name: 'Home',
   data: () => ({
-    drawer: true,
+    drawer: false,
     group: 0,
+    tab: 0,
+    tabs: [
+      {
+        id: 1,
+        name: 'Сегодня',
+      },
+      {
+        id: 2,
+        name: 'Завтра',
+      },
+      {
+        id: 3,
+        name: 'Неделя',
+      },
+      {
+        id: 4,
+        name: 'Месяц',
+      },
+      {
+        id: 5,
+        name: 'Год',
+      },
+    ],
     zodiac: [
       {
         id: 1,

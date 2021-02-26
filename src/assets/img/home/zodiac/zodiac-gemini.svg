@@ -1,0 +1,23 @@
+<svg width="168" height="150" viewBox="0 0 168 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M103.977 64.3857V65.1794C103.977 76.2317 95.0176 85.1914 83.9653 85.1914V85.1914C72.9129 85.1914 63.9532 76.2317 63.9532 65.1794V64.3857" stroke="#DFDADB" stroke-width="1.5"/>
+<circle cx="41.6334" cy="23.6101" r="22.198" stroke="#DFDADB" stroke-width="1.5"/>
+<path d="M18.9784 68.4212C18.9784 56.062 28.9975 46.043 41.3566 46.043H41.9101C54.2692 46.043 64.2883 56.062 64.2883 68.4212V106.627H18.9784V68.4212Z" stroke="#DFDADB" stroke-width="1.5"/>
+<path d="M28.8927 28.0977C30.6819 33.4179 35.7101 37.2499 41.6333 37.2499C47.5565 37.2499 52.5847 33.4179 54.3739 28.0977" stroke="#DFDADB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M31.8094 106.727V145.851" stroke="#DFDADB" stroke-width="1.5"/>
+<circle cx="31.8094" cy="145.851" r="3.95647" fill="#DFDADB"/>
+<circle cx="4.00481" cy="93.4721" r="3.95647" fill="#DFDADB"/>
+<circle cx="41.2403" cy="45.2924" r="3.95647" fill="#DFDADB"/>
+<circle cx="49.9368" cy="145.851" r="3.95647" fill="#DFDADB"/>
+<path d="M49.9369 106.727V145.851" stroke="#DFDADB" stroke-width="1.5"/>
+<path d="M19.2628 63.4395C14.4965 63.4395 4.00476 71.5384 4.00476 93.4724" stroke="#DFDADB" stroke-width="1.5"/>
+<circle r="22.198" transform="matrix(-1 0 0 1 126.367 23.6101)" stroke="#DFDADB" stroke-width="1.5"/>
+<path d="M149.022 68.4212C149.022 56.062 139.003 46.043 126.644 46.043H126.09C113.731 46.043 103.712 56.062 103.712 68.4212V106.627H149.022V68.4212Z" stroke="#DFDADB" stroke-width="1.5"/>
+<path d="M139.107 28.0977C137.318 33.4179 132.29 37.2499 126.367 37.2499C120.444 37.2499 115.415 33.4179 113.626 28.0977" stroke="#DFDADB" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M136.191 106.727V145.851" stroke="#DFDADB" stroke-width="1.5"/>
+<circle r="3.95647" transform="matrix(-1 0 0 1 136.191 145.851)" fill="#DFDADB"/>
+<circle r="3.95647" transform="matrix(-1 0 0 1 163.995 93.4721)" fill="#DFDADB"/>
+<circle r="3.95647" transform="matrix(-1 0 0 1 126.76 45.2924)" fill="#DFDADB"/>
+<circle r="3.95647" transform="matrix(-1 0 0 1 118.063 145.851)" fill="#DFDADB"/>
+<path d="M118.063 106.727V145.851" stroke="#DFDADB" stroke-width="1.5"/>
+<path d="M148.737 63.4395C153.504 63.4395 163.995 71.5384 163.995 93.4724" stroke="#DFDADB" stroke-width="1.5"/>
+</svg>
