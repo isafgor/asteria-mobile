@@ -14,25 +14,16 @@
         <h2 class="asteria-home__title">{{selectedZodiac.name}}</h2>
       </div>
       <div class="asteria-home__zodiac">
-        <img width="158" v-if="selectedZodiac && selectedZodiac.tag" :src="require(`@/assets/img/home/zodiac/${selectedZodiac.tag}.svg`)" alt="">
+        <img width="200" v-if="selectedZodiac && selectedZodiac.tag" :src="require(`@/assets/img/home/zodiac/${selectedZodiac.tag}.svg`)" alt="">
       </div>
     </div>
     <div class="asteria-info">
       <v-tabs v-model="tab" background-color="transparent" color="#FF8563" center-active>
         <v-tab v-for="item of tabs" :key="item.id" color="#8C8C8C">{{item.name}}</v-tab>
       </v-tabs>
-      <p class="mt-3">
-        <span>Фев 23, 2021</span>
-        Текст текст  тексцуацуа текст  тексттекст
-        цуатекст  текст  текст  текст тексцуауцаекст
-        текст  текст  текст Текст текст  текст  тексцуацуа
-        текст  текст текст  цуатекст  текст  текст  текст
-        тексцуауцаекст     Текст текст  текст  тексцуацуа текст
-        текст текст  цуатекст  текст  текст  текст тексцуауцаекст
-        текст  текст  текст Текст текст  текст  тексцуацуа текст
-        текст текст  цуатекст  текст  текст  текст тексцуауцаекст
-        текст  текст  текст   текст  текст  текст  текст  текст
-        текст  текст  текст  текст  текст  текст  текст
+      <p class="mt-3" v-if="forecast && forecast[this.currentTab.code]">
+        <span>{{forecast[this.currentTab.code].date | moment("MMM D, YYYY")}} -</span>
+        {{forecast[this.currentTab.code].text}}
       </p>
     </div>
 
@@ -84,6 +75,7 @@
 </template>
 
 <script>
+  import {mapState} from 'vuex'
 
 export default {
   name: 'Home',
@@ -95,22 +87,27 @@ export default {
       {
         id: 1,
         name: 'Сегодня',
+        code: 'today',
       },
       {
         id: 2,
         name: 'Завтра',
+        code: 'tomorrow',
       },
       {
         id: 3,
         name: 'Неделя',
+        code: 'week',
       },
       {
         id: 4,
         name: 'Месяц',
+        code: 'month',
       },
       {
         id: 5,
         name: 'Год',
+        code: 'year',
       },
     ],
     zodiac: [
@@ -191,11 +188,22 @@ export default {
   }),
   components: {
   },
+  computed: {
+    ...mapState('forecast', ['forecast']),
+    currentTab () {
+      return this.tabs[this.tab]
+    }
+  },
   watch: {
     group (val) {
       this.drawer = false
       this.selectedZodiac = this.zodiac[val]
     },
+    selectedZodiac (val) {
+      this.$store.dispatch('forecast/getForecasts', {
+        sign: val.id
+      })
+    }
   },
   mounted () {
     this.selectedZodiac = this.zodiac[0]

@@ -76,37 +76,40 @@
 </script>
 
 <style lang="scss">
-  .back-route {
-    .v-list-item__title {
-      color: #FFFFFF !important;
-      font-weight: 600 !important;
-      font-size: 16px !important;
-      line-height: 143% !important;
+  .asteria-settings {
+    .back-route {
+      .v-list-item__title {
+        color: #FFFFFF !important;
+        font-weight: 600 !important;
+        font-size: 16px !important;
+        line-height: 143% !important;
+      }
     }
-  }
-  .saftech-mark {
-    position: absolute;
-    bottom: 15px;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
 
-  .asteria-app {
-    font-family: Montserrat;
-    margin-left: 44px;
-    margin-top: 23px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 19px;
-    color: #EEEEEE;
-    small {
-      font-size: 12px;
-      line-height: 99%;
-      /* identical to box height, or 12px */
-      color: #56595A;
+    .saftech-mark {
+      position: absolute;
+      bottom: 15px;
+      left: 0;
+      width: 100%;
+      display: flex !important;
+      justify-content: center;
+    }
+
+    .asteria-app {
+      font-family: Montserrat;
+      margin-left: 44px;
+      margin-top: 23px;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 19px;
+      color: #EEEEEE;
+      small {
+        font-size: 12px;
+        line-height: 99%;
+        /* identical to box height, or 12px */
+        color: #56595A;
+      }
     }
   }
 </style>
