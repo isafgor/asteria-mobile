@@ -66,7 +66,7 @@
 
         </v-list-item-group>
 
-        <v-list-item class="mt-5">
+        <v-list-item class="mt-5" @click="$router.push({path: '/settings'})">
           <v-list-item-icon>
             <v-icon>mdi-cog</v-icon>
           </v-list-item-icon>

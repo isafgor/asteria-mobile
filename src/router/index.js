@@ -6,15 +6,20 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '/start',
+    name: 'Start',
+    component: () => import('../views/Start.vue')
+  },
+  {
     path: '/',
     name: 'Home',
     component: Home,
   },
   {
-    path: '/start',
-    name: 'Start',
-    component: () => import('../views/Start.vue')
-  }
+    path: '/settings',
+    name: 'Settings',
+    component: () => import('../views/Settings.vue')
+  },
 ]
 
 const router = new VueRouter({
