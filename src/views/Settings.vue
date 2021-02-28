@@ -54,6 +54,7 @@
         {
           id: 2,
           name: 'Уведомления',
+          route: '/support',
           icon: 'mdi-bell'
         },
         {

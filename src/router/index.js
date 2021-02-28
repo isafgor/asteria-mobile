@@ -22,6 +22,11 @@ const router = new Router({
       name: 'Settings',
       component: () => import('../views/Settings.vue')
     },
+    {
+      path: '/support',
+      name: 'Support',
+      component: () => import('../views/Support.vue')
+    },
   ]
 })
 
