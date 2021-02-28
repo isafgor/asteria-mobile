@@ -1,29 +1,43 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Router from 'vue-router';
 import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
-const routes = [
-  {
-    path: '/start',
-    name: 'Start',
-    component: () => import('../views/Start.vue')
-  },
-  {
-    path: '/',
-    name: 'Home',
-    component: Home,
-  },
-  {
-    path: '/settings',
-    name: 'Settings',
-    component: () => import('../views/Settings.vue')
-  },
-]
-
-const router = new VueRouter({
-  routes
+const router = new Router({
+  routes: [
+    {
+      path: '/start',
+      name: 'Start',
+      component: () => import('../views/Start.vue')
+    },
+    {
+      path: '/',
+      name: 'Home',
+      component: Home,
+    },
+    {
+      path: '/settings',
+      name: 'Settings',
+      component: () => import('../views/Settings.vue')
+    },
+  ]
 })
+
+router.beforeEach((to, from, next) => {
+  let token = localStorage.date && localStorage.name;
+
+  if (
+      token ||
+      from.path === '/start' ||
+      to.path === '/start'
+
+  ) {
+    next();
+  } else {
+    next({path: '/start'});
+  }
+});
 
 export default router

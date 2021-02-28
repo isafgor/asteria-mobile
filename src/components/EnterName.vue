@@ -16,7 +16,7 @@
                 rounded
                 class="asteria__button"
                 :disabled="name === ''"
-                @click="$emit('nextStep')"
+                @click="next"
         >
             Продолжить
         </v-btn>
@@ -29,7 +29,18 @@ export default {
     name: "EnterName",
     data: () => ({
         name: '',
-    })
+    }),
+    methods: {
+        next () {
+            localStorage.name = this.name
+            this.$emit('nextStep')
+        }
+    },
+    mounted () {
+        if (localStorage.name) {
+            this.name = localStorage.name
+        }
+    }
 }
 </script>
 

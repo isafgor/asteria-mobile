@@ -21,9 +21,11 @@
       <v-tabs v-model="tab" background-color="transparent" color="#FF8563" center-active>
         <v-tab v-for="item of tabs" :key="item.id" color="#8C8C8C">{{item.name}}</v-tab>
       </v-tabs>
-      <p class="mt-3" v-if="forecast && forecast[this.currentTab.code]">
-        <span>{{forecast[this.currentTab.code].date | moment("MMM D, YYYY")}} -</span>
-        {{forecast[this.currentTab.code].text}}
+      <p class="mt-3" v-if="forecast && forecast[currentTab.code]">
+        <span v-if="currentTab.code === 'today' || currentTab.code === 'tomorrow'">{{forecast[currentTab.code].date | moment("MMM D, YYYY")}} -</span>
+        <span v-if="currentTab.code === 'month'">{{forecast[currentTab.code].date | moment("MMMM")}} -</span>
+        <span v-if="currentTab.code === 'year'">{{forecast[currentTab.code].date | moment("YYYY")}} -</span>
+        {{forecast[currentTab.code].text}}
       </p>
     </div>
 
@@ -83,6 +85,7 @@ export default {
     drawer: false,
     group: 0,
     tab: 0,
+    forecastKey: 1,
     tabs: [
       {
         id: 1,
@@ -206,7 +209,8 @@ export default {
     }
   },
   mounted () {
-    this.selectedZodiac = this.zodiac[0]
+    //Ищет какой знак у пользователя и отнимает у него 1, получается this.zodiac[this.group]
+    this.group = this.zodiac.find(item => item.tag === localStorage.selectedZodiac).id - 1
   }
 }
 </script>

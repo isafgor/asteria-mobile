@@ -15,7 +15,7 @@
       </v-list-item>
       <v-list-item-group
       >
-        <v-list-item v-for="item of items" :key="item.id">
+        <v-list-item v-for="item of items" :key="item.id" @click="routeTo(item.route)">
 
           <v-list-item-icon>
             <img :src="require(`@/assets/img/settings/${item.icon}.svg`)" alt="">
@@ -48,6 +48,7 @@
         {
           id: 1,
           name: 'Сменить данные пользователя',
+          route: '/start',
           icon: 'mdi-user'
         },
         {
@@ -57,21 +58,21 @@
         },
         {
           id: 3,
-          name: 'Нашёл ошибку',
-          icon: 'mdi-warning'
+          name: 'Поддержка',
+          icon: 'mdi-support'
         },
         {
           id: 4,
-          name: 'Помощь',
-          icon: 'mdi-help'
-        },
-        {
-          id: 5,
           name: 'Политика конфиденциальности',
           icon: 'mdi-list'
         },
       ]
     }),
+    methods: {
+      routeTo (route) {
+        this.$router.push({path: route})
+      }
+    }
   }
 </script>
 

@@ -4,7 +4,7 @@
         <h2 class="asteria__headline mb-6">Укажите дату <br> рождения</h2>
         <img :src="require('@/assets/img/start/moon.svg')"alt="">
         <v-text-field
-                placeholder="Введите дату"
+                placeholder="01/01/2021"
                 v-model="date"
                 outlined
                 class="asteria__input mt-8"
@@ -21,6 +21,7 @@
                     rounded
                     class="asteria__button"
                     :disabled="date === ''"
+                    @click="next"
             >
                 Продолжить
             </v-btn>
@@ -33,7 +34,31 @@
         name: "EnterDate",
         data: () => ({
             date: '',
-        })
+        }),
+        methods: {
+            zodiac(day, month){
+                let zodiac =['', 'zodiac-capricorn', 'zodiac-aquarius', 'zodiac-pisces', 'zodiac-aries', 'zodiac-taurus',
+                    'zodiac-gemini', 'zodiac-cancer', 'zodiac-leo', 'zodiac-virgo', 'zodiac-libra', 'zodiac-scorpio', 'zodiac-sagittarius', 'zodiac-capricorn'];
+                let last_day =['', 19, 18, 20, 20, 21, 21, 22, 22, 21, 22, 21, 20, 19];
+                return (day > last_day[month]) ? zodiac[month*1 + 1] : zodiac[month];
+            },
+            selectSign () {
+                let dates = this.date.split('/')
+                let day = Number(dates[0])
+                let month = Number(dates[1])
+                localStorage.selectedZodiac = this.zodiac(day, month)
+            },
+            next () {
+                this.selectSign()
+                localStorage.date = this.date
+                this.$router.push({path: '/'})
+            }
+        },
+        mounted () {
+            if (localStorage.date) {
+                this.date = localStorage.date
+            }
+        }
     }
 </script>
 
