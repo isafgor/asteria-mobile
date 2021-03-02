@@ -52,11 +52,6 @@
           icon: 'mdi-user'
         },
         {
-          id: 2,
-          name: 'Уведомления',
-          icon: 'mdi-bell'
-        },
-        {
           id: 3,
           name: 'Поддержка',
           route: '/support',
@@ -65,13 +60,18 @@
         {
           id: 4,
           name: 'Политика конфиденциальности',
+          route: 'https://policy.asteria.space/',
           icon: 'mdi-list'
         },
       ]
     }),
     methods: {
       routeTo (route) {
-        this.$router.push({path: route})
+        if(!route.includes('https')) {
+          this.$router.push({path: route})
+        } else {
+          window.location.href = route
+        }
       }
     }
   }
