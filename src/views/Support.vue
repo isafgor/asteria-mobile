@@ -1,5 +1,5 @@
 <template>
-    <div class="asteria-support">
+    <div class="asteria-support darkula">
         <div class="back-route mt-9 ml-4 d-flex justify-start align-center" @click="$router.go(-1)">
             <img class="mr-2" :src="require('@/assets/img/settings/arrow.svg')" alt="">
             Поддержка
@@ -79,7 +79,6 @@ export default {
 <style lang="scss">
     .asteria-support {
         background: #241F26;
-        min-height: 100vh;
         .back-route {
             font-family: Montserrat;
             font-style: normal;

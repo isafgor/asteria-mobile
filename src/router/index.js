@@ -27,6 +27,11 @@ const router = new Router({
       name: 'Support',
       component: () => import('../views/Support.vue')
     },
+    {
+      path: '/notifications',
+      name: 'Notifications',
+      component: () => import('../views/Notifications.vue')
+    },
   ]
 })
 
