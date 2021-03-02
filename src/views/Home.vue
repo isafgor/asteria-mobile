@@ -21,11 +21,11 @@
       <v-tabs v-model="tab" background-color="transparent" color="#FF8563" center-active>
         <v-tab v-for="item of tabs" :key="item.id" color="#8C8C8C">{{item.name}}</v-tab>
       </v-tabs>
-      <p class="mt-3" v-if="forecast && forecast[currentTab.code]">
-        <span v-if="currentTab.code === 'today' || currentTab.code === 'tomorrow'">{{forecast[currentTab.code].date | moment("MMM D, YYYY")}} -</span>
-        <span v-if="currentTab.code === 'month'">{{forecast[currentTab.code].date | moment("MMMM")}} -</span>
-        <span v-if="currentTab.code === 'year'">{{forecast[currentTab.code].date | moment("YYYY")}} -</span>
-        {{forecast[currentTab.code].text}}
+      <p class="mt-3" v-if="selectedZodiac && selectedZodiac[currentTab.code]">
+        <span v-if="currentTab.code === 'today' || currentTab.code === 'tomorrow'">{{selectedZodiac[currentTab.code].date | moment("MMM D, YYYY")}} -</span>
+        <span v-if="currentTab.code === 'month'">{{selectedZodiac[currentTab.code].date | moment("MMMM")}} -</span>
+        <span v-if="currentTab.code === 'year'">{{selectedZodiac[currentTab.code].date | moment("YYYY")}} -</span>
+        {{selectedZodiac[currentTab.code].text}}
       </p>
     </div>
 
@@ -187,7 +187,6 @@ export default {
         dates: '20 фев - 20 мар',
       },
     ],
-    selectedZodiac: {},
   }),
   components: {
   },
@@ -195,18 +194,19 @@ export default {
     ...mapState('forecast', ['forecast']),
     currentTab () {
       return this.tabs[this.tab]
+    },
+    selectedZodiac () {
+      let data = {}
+      Object.assign(data, this.forecast[this.group + 1])
+      data.tag = this.zodiac[this.group].tag
+      data.name = this.zodiac[this.group].name
+      return data
     }
   },
   watch: {
-    group (val) {
+    group () {
       this.drawer = false
-      this.selectedZodiac = this.zodiac[val]
     },
-    selectedZodiac (val) {
-      this.$store.dispatch('forecast/getForecasts', {
-        sign: val.id
-      })
-    }
   },
   mounted () {
     //Ищет какой знак у пользователя и отнимает у него 1, получается this.zodiac[this.group]

@@ -21,6 +21,8 @@ export default {
 
 <style lang="scss">
     .asteria-support {
+        background: #241F26;
+        min-height: 100vh;
         .back-route {
             .v-list-item__title {
                 color: #FFFFFF !important;

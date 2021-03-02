@@ -54,12 +54,12 @@
         {
           id: 2,
           name: 'Уведомления',
-          route: '/support',
           icon: 'mdi-bell'
         },
         {
           id: 3,
           name: 'Поддержка',
+          route: '/support',
           icon: 'mdi-support'
         },
         {
