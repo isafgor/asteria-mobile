@@ -25,7 +25,7 @@
         <span class="mr-2" v-if="currentTab.code === 'today' || currentTab.code === 'tomorrow'">{{selectedZodiac[currentTab.code].date | moment("MMM D, YYYY")}}</span>
         <span v-if="currentTab.code === 'month'">{{selectedZodiac[currentTab.code].date | moment("MMMM")}}</span>
         <span v-if="currentTab.code === 'year'">{{selectedZodiac[currentTab.code].date | moment("YYYY")}}</span>
-        -
+        <span v-if="showDayPositive">-</span>
         <span class="ml-1" v-if="showDayPositive">
           <img width="17" v-if="dayPositive.value !== 'undefined'" :src="require(`@/assets/img/home/day-positive/${dayPositive.value}.svg`)" alt="">
           {{dayPositive.name}} день
