@@ -22,9 +22,15 @@
         <v-tab v-for="item of tabs" :key="item.id" color="#8C8C8C">{{item.name}}</v-tab>
       </v-tabs>
       <p class="mt-3" v-if="selectedZodiac && selectedZodiac[currentTab.code]">
-        <span v-if="currentTab.code === 'today' || currentTab.code === 'tomorrow'">{{selectedZodiac[currentTab.code].date | moment("MMM D, YYYY")}} -</span>
-        <span v-if="currentTab.code === 'month'">{{selectedZodiac[currentTab.code].date | moment("MMMM")}} -</span>
-        <span v-if="currentTab.code === 'year'">{{selectedZodiac[currentTab.code].date | moment("YYYY")}} -</span>
+        <span class="mr-2" v-if="currentTab.code === 'today' || currentTab.code === 'tomorrow'">{{selectedZodiac[currentTab.code].date | moment("MMM D, YYYY")}}</span>
+        <span v-if="currentTab.code === 'month'">{{selectedZodiac[currentTab.code].date | moment("MMMM")}}</span>
+        <span v-if="currentTab.code === 'year'">{{selectedZodiac[currentTab.code].date | moment("YYYY")}}</span>
+        -
+        <span class="ml-1" v-if="showDayPositive">
+          <img width="17" v-if="dayPositive.value !== 'undefined'" :src="require(`@/assets/img/home/day-positive/${dayPositive.value}.svg`)" alt="">
+          {{dayPositive.name}} день
+        </span>
+        <br>
         {{selectedZodiac[currentTab.code].text}}
       </p>
     </div>
@@ -78,8 +84,9 @@
 
 <script>
   import {mapState} from 'vuex'
+  import {dayType} from "../enum/dayTypes";
 
-export default {
+  export default {
   name: 'Home',
   data: () => ({
     drawer: false,
@@ -201,6 +208,45 @@ export default {
       data.tag = this.zodiac[this.group].tag
       data.name = this.zodiac[this.group].name
       return data
+    },
+    showDayPositive () {
+      return (this.currentTab.code === 'today' || this.currentTab.code === 'tomorrow') && this.selectedZodiac
+    },
+    dayPositive () {
+      let zodiacDayPositive = this.selectedZodiac[this.currentTab.code].day_type
+
+      switch (zodiacDayPositive) {
+        case dayType.BEAUTIFUL:
+          return {
+            name: 'Прекрасный',
+            value: 'beautiful'
+          }
+        case dayType.GOOD:
+          return {
+            name: 'Хороший',
+            value: 'good'
+          }
+        case dayType.NEUTRAL:
+          return {
+            name: 'Нейтральный',
+            value: 'neutral'
+          }
+        case dayType.NEGATORY:
+          return {
+            name: 'Отрицательный',
+            value: 'negatory'
+          }
+        case dayType.NEGATIVE:
+          return {
+            name: 'Негативный',
+            value: 'negative'
+          }
+        default:
+          return {
+            name: 'Неизвестный',
+            value: 'undefined'
+          }
+      }
     }
   },
   watch: {
