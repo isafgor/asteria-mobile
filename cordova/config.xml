@@ -1,19 +1,17 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="asteria.thesaftech.com" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>asteria.thesaftech.com</name>
+<widget id="asteria.thesaftech.com" version="1.0.1" android-versionCode="20000" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Гороскоп</name>
     <description>
-        Saftech LLC Asteria
+        Saftech, LLC Asteria
     </description>
     <author email="contact@thesaftech.com" href="http://thesaftech.com">
-        Saftech
+        Saftech, LLC
     </author>
+    <icon src="icon.png" />
     <!-- this hook will point your config.xml to the DevServer on Serve -->
     <hook type="after_prepare" src="../node_modules/vue-cli-plugin-cordova/serve-config-hook.js" />
     <content src="index.html" />
-    <allow-navigation href="http://api.asteria.space/*" />
     <access origin="*" />
-    <allow-intent href="http://api.asteria.space/*" />
-    <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />

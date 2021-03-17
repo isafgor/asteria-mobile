@@ -17,7 +17,14 @@
         <img width="200" v-if="selectedZodiac && selectedZodiac.tag" :src="require(`@/assets/img/home/zodiac/${selectedZodiac.tag}.svg`)" alt="">
       </div>
     </div>
-    <div class="asteria-info">
+    <div v-if="loader" class="asteria-loader">
+      <v-progress-circular
+              indeterminate
+              color="purple"
+              :size="80"
+      ></v-progress-circular>
+    </div>
+    <div v-else class="asteria-info">
       <v-tabs v-model="tab" background-color="transparent" color="#FF8563" center-active>
         <v-tab v-for="item of tabs" :key="item.id" color="#8C8C8C">{{item.name}}</v-tab>
       </v-tabs>
@@ -198,7 +205,7 @@
   components: {
   },
   computed: {
-    ...mapState('forecast', ['forecast']),
+    ...mapState('forecast', ['forecast', 'loader']),
     currentTab () {
       return this.tabs[this.tab]
     },
