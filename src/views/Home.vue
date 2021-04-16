@@ -2,6 +2,7 @@
   <v-card
           class="overflow-hidden"
           min-height="100vh"
+          max-height="100vh"
           color="#1D1223"
   >
     <div class="asteria-home">
@@ -28,18 +29,18 @@
       <v-tabs v-model="tab" background-color="transparent" color="#FF8563" center-active>
         <v-tab v-for="item of tabs" :key="item.id" color="#8C8C8C">{{item.name}}</v-tab>
       </v-tabs>
-      <p class="mt-3" v-if="selectedZodiac && selectedZodiac[currentTab.code]">
+      <div class="mt-3 info-text" v-if="selectedZodiac && selectedZodiac[currentTab.code]">
         <span class="mr-2" v-if="currentTab.code === 'today' || currentTab.code === 'tomorrow'">{{selectedZodiac[currentTab.code].date | moment("MMM D, YYYY")}}</span>
         <span v-if="currentTab.code === 'month'">{{selectedZodiac[currentTab.code].date | moment("MMMM")}}</span>
         <span v-if="currentTab.code === 'year'">{{selectedZodiac[currentTab.code].date | moment("YYYY")}}</span>
-        <span v-if="showDayPositive">-</span>
+        <span v-if="showDayPositive" class="separator">—</span>
         <span class="ml-1" v-if="showDayPositive">
           <img width="17" v-if="dayPositive.value !== 'undefined'" :src="require(`@/assets/img/home/day-positive/${dayPositive.value}.svg`)" alt="">
           {{dayPositive.name}} день
         </span>
         <br>
-        {{selectedZodiac[currentTab.code].text}}
-      </p>
+        <p>{{selectedZodiac[currentTab.code].text}}</p>
+      </div>
     </div>
 
     <v-navigation-drawer
@@ -52,7 +53,7 @@
       <v-list
               nav
               dense
-              class="mt-5"
+              class="mt-11"
       >
         <v-list-item-group
                 v-model="group"
@@ -82,7 +83,7 @@
           </v-list-item-title>
         </v-list-item>
       </v-list>
-      <a class="saftech-mark" href="https://thesaftech.com">
+      <a class="saftech-mark-home" href="https://thesaftech.com">
         <img :src="require('@/assets/img/home/menu/saftech-mark.svg')" alt="">
       </a>
     </v-navigation-drawer>
@@ -278,9 +279,17 @@
       color: #FF8563 !important;
     }
   }
-  .saftech-mark {
+  .saftech-mark-home {
     position: absolute;
-    bottom: 15px;
+    padding-top: 15px;
+    top: 0;
     left: 15px;
+    width: 230px;
+    background: #241F26;
+  }
+
+  .separator {
+    color: #8C8C8C;
+    margin: 0 3px;
   }
 </style>

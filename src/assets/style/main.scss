@@ -158,14 +158,16 @@ img {
         margin-left: 7px !important;
       }
     }
-    p {
+    .info-text {
       font-family: Montserrat;
       font-size: 14px;
       line-height: 2;
       color: #E0DBDC;
-      padding: 0 20px;
+      padding-left: 20px;
+      padding-right: 20px;
       overflow: scroll;
       max-height: 320px;
+      padding-bottom: 150px;
       span {
         font-weight: 600;
         font-family: inherit;

@@ -7,7 +7,7 @@
                 placeholder="01/01/2021"
                 v-model="date"
                 outlined
-                class="asteria__input mt-8"
+                class="asteria__input date-input"
                 color="#FF8868"
                 height="48px"
                 v-mask="'##/##/####'"
@@ -66,10 +66,14 @@
     .button-center {
         width: 100vw;
         height: 100%;
-        padding-top: 170px;
+        padding-top: 100px;
         background: #1D1D22;
     }
     .calendar-icon {
         margin-top: -4px !important;
+    }
+
+    .date-input {
+        margin-top: 101px;
     }
 </style>
