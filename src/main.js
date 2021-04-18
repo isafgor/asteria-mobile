@@ -14,11 +14,12 @@ Vue.use(require('vue-moment'), {
 
 Vue.config.productionTip = false
 
+
+//Push notifications!!!
 function getRandomArbitrary(min, max) {
   return Math.random() * (max - min) + min;
 }
 
-//Push notifications!!!
 let notifyArr = [
   'Сегодня обязательно нужно посмотреть гороскоп!',
   'Ты уже знаешь, какой день тебя ждёт?',
