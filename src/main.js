@@ -18,23 +18,26 @@ function getRandomArbitrary(min, max) {
   return Math.random() * (max - min) + min;
 }
 
+//Push notifications!!!
 let notifyArr = [
   'Сегодня обязательно нужно посмотреть гороскоп!',
   'Ты уже знаешь, какой день тебя ждёт?',
   'Перед выходом из дома, обязательно загляни в приложение',
   'У нас есть для тебя прогноз дня!',
 ];
-let random = Math.floor(getRandomArbitrary(0, 4))
+let random = Math.floor(getRandomArbitrary(0, notifyArr.length - 1))
 
 document.addEventListener('deviceready', function () {
 
   window.cordova.plugins.notification.local.schedule({
     title: 'Доброе утро!',
-    trigger: { every: { hour: 18, minute: 28 } },
+    trigger: { every: { hour: 8, minute: 0 } },
     text: notifyArr[random],
     foreground: true,
   });
 }, false);
+
+
 
 
 new Vue({
