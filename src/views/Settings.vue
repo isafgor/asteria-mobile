@@ -30,7 +30,7 @@
       <div class="asteria-app">
         Астерия
         <br>
-        <small>Версия 1.0.2</small>
+        <small>Версия 1.0.3</small>
       </div>
     </v-list>
     <a class="saftech-mark" href="https://thesaftech.com">
